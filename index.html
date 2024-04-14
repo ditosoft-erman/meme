@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cute name generator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0; /* Set background color */
+        overflow: hidden; /* Hide overflowing content */
+        position: relative; /* Position relative for duck animation */
+      }
+      .container {
+        max-width: 400px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+        padding: 3rem;
+      }
+      .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .btn {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background-color: #45a049;
+      }
+      #nameForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      /* Duck animation */
+      .duck {
+        position: absolute;
+        width: 50px; /* Adjust duck size */
+        animation: flow 5s linear infinite; /* Animation settings */
+      }
+
+      @keyframes flow {
+        0% {
+          transform: translate(-100%, -100%);
+        }
+        100% {
+          transform: translate(100%, 100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Duck images -->
+    <div class="container">
+      <h2>Welcome!</h2>
+
+      <form
+        id="nameForm"
+        action="welcome.html"
+        method="GET"
+        onsubmit="return validateName()"
+      >
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      function validateName() {
+        var nameInput = document
+          .getElementById("name")
+          .value.trim()
+          .toLowerCase();
+        if (nameInput !== "alrey") {
+          document.getElementById("name").value = "";
+          return false; // Prevent form submission
+        }
+        return true; // Allow form submission
+      }
+
+      // Randomly position duck images
+      var numDucks = 20; // Number of ducks
+      var container = document.querySelector(".container");
+      var containerWidth = container.offsetWidth;
+      var containerHeight = container.offsetHeight;
+
+      for (var i = 0; i < numDucks; i++) {
+        var duck = document.createElement("div");
+        duck.classList.add("duck");
+        duck.style.top = Math.random() * containerHeight + "px";
+        duck.style.left = Math.random() * containerWidth + "px";
+        container.appendChild(duck);
+      }
+    </script>
+  </body>
+</html>

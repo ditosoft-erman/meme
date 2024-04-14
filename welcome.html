@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cute name generator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column; /* Align items vertically */
+      }
+      h2 {
+        margin-bottom: 20px;
+      }
+      img {
+        width: 200px; /* Adjust the size of the image */
+        height: auto;
+        margin-bottom: 20px;
+        animation: zoomInOut 3s ease-in-out forwards; /* Apply zoom animation */
+      }
+
+      @keyframes zoomInOut {
+        0% {
+          transform: scale(1); /* Initial scale */
+        }
+        50% {
+          transform: scale(1.2); /* Zoom in */
+        }
+        100% {
+          transform: scale(1); /* Zoom out */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Empty image -->
+    <img src="PAKYU.jpg" alt="Empty Image" />
+
+    <!-- Welcome message -->
+    <h2 id="welcomeMessage"></h2>
+
+    <script>
+      // Extracting the name from the URL query parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const name = urlParams.get("name");
+
+      // Displaying a welcome message with the name
+      document.getElementById(
+        "welcomeMessage"
+      ).innerText = `PAKYUUUUU, ${name}!`;
+    </script>
+
+    <script>
+      // Zoom out after 1.5 seconds
+      setTimeout(function () {
+        document.querySelector("img").style.animation =
+          "zoomInOut 1.5s ease-in-out forwards";
+      }, 1500);
+    </script>
+  </body>
+</html>
