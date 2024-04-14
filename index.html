@@ -12,9 +12,9 @@
         align-items: center;
         height: 100vh;
         margin: 0;
-        background-color: #f0f0f0; /* Set background color */
-        overflow: hidden; /* Hide overflowing content */
-        position: relative; /* Position relative for duck animation */
+        background-color: #f0f0f0;
+        overflow: hidden;
+        position: relative;
       }
       .container {
         max-width: 400px;
@@ -60,11 +60,10 @@
         text-align: center;
       }
 
-      /* Duck animation */
       .duck {
         position: absolute;
-        width: 50px; /* Adjust duck size */
-        animation: flow 5s linear infinite; /* Animation settings */
+        width: 50px;
+        animation: flow 5s linear infinite;
       }
 
       @keyframes flow {
@@ -78,7 +77,6 @@
     </style>
   </head>
   <body>
-    <!-- Duck images -->
     <div class="container">
       <h2>Welcome!</h2>
 
@@ -110,13 +108,12 @@
           .toLowerCase();
         if (nameInput !== "alrey") {
           document.getElementById("name").value = "";
-          return false; // Prevent form submission
+          return false;
         }
-        return true; // Allow form submission
+        return true;
       }
 
-      // Randomly position duck images
-      var numDucks = 20; // Number of ducks
+      var numDucks = 20;
       var container = document.querySelector(".container");
       var containerWidth = container.offsetWidth;
       var containerHeight = container.offsetHeight;
